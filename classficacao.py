@@ -42,7 +42,8 @@ resultado = [
 ]
 
 NaiveBayes = False
-DecisionTree = True
+DecisionTree = False
+KNN = True
 
 if (NaiveBayes): 
     from sklearn.naive_bayes import GaussianNB
@@ -93,5 +94,25 @@ elif (DecisionTree):
     #Gini - Porcentagem para um dos valores
     #Transparente - Não é certeza absoluta
     #Opaco - CErteza absoluta
+elif (KNN):
+    from sklearn.neighbors import KNeighborsClassifier
+    from sklearn import metrics
 
+    modelo = KNeighborsClassifier()
+    modelo.fit(caracteristicas, resultado)
+
+    #Prevendo
+    previsao = modelo.predict([
+        [TEMPO_SOL, DINHEIRO_SIM],
+        [TEMPO_SOL, DINHEIRO_SIM],
+        [TEMPO_CHOVEU, DINHEIRO_SIM]
+    ])
+    
+    print(previsao)
+
+    #Avaliando a porcentagem de acerto
+    valorEsperado = resultado
+    valorGerado = modelo.predict(caracteristicas)
+
+    print(metrics.accuracy_score(valorEsperado, valorGerado))
 
