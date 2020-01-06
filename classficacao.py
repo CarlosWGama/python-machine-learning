@@ -1,5 +1,5 @@
 #https://www.vooo.pro/insights/6-passos-faceis-para-aprender-o-algoritmo-naive-bayes-com-o-codigo-em-python/
-from enum import Enum;
+from enum import Enum
 
 #CARACTERISTICAS
 TEMPO_CHOVEU = 1
